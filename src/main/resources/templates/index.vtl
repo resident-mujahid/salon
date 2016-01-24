@@ -16,13 +16,12 @@
 
   <div class="col-md-4 add-box">
     <h2>Add New Stylist</h2>
-    <form class="form add-form" action="/" method="post">
+    <form class="form add-form" action="/new-stylist" method="post">
       <div class="form-group">
         <input name="firstname" type="text" class="form-control" id="firstname" required placeholder="First Name">
       </div>
       <div class="form-group">
         <input name="lastname" type="text" class="form-control" id="lastname" required placeholder="Last Name">
-        <input name="addnewstylist" type="hidden" class="form-control" id="addnewstylist" value="true">
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block">Add New Stylist</button>
@@ -71,7 +70,7 @@
               <td><a href="/stylists/$person.getId()">$person.getLastName(), $person.getFirstName()</a></td>
               <td>$person.getNumberOfClients()</td>
               <td>
-                <form class="remove-stylist" action="/" method="post">
+                <form class="remove-stylist" action="/remove-stylist" method="post">
                   <input type="hidden" name="removestylist" value="$person.getId()">
                   <button type="submit" class="btn-link">Remove $person.getFullName()</button>
                 </form>
