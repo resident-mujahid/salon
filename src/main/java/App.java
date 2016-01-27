@@ -82,13 +82,9 @@ public class App {
           request.queryParams("removestylist")));
         removalRequest.delete();
 
-        model.put("client", Client.class);
-        model.put("stylist", Stylist.class);
-        model.put("stylists", Stylist.all());
-        model.put("unassignedclients", Client.unassignedClientsExist());
-        model.put("template", "templates/index.vtl");
-        return new ModelAndView(model, layout);
-      }, new VelocityTemplateEngine());
+        response.redirect("/");
+        return null;
+      });
 
       //Update a stylist
       post("/stylists/:id/update", (request, response) -> {
@@ -145,11 +141,9 @@ public class App {
             request.queryParams("removeclient")));
         removalRequest.delete();
 
-        model.put("stylist", thisStylist);
-        model.put("clients", thisStylist.getAllClients());
-        model.put("template", "templates/stylist.vtl");
-        return new ModelAndView(model, layout);
-      }, new VelocityTemplateEngine());
+        response.redirect("/stylists/" + thisStylist.getId());
+        return null;
+      });
 
       //Update a client - change name
       post("/clients/:id/update", (request, response) -> {
@@ -187,12 +181,8 @@ public class App {
           request.queryParams("newstylistid")));
         currentStylist = Stylist.find(thisClient.getStylistId());
 
-        model.put("stylist", Stylist.class);
-        model.put("currentstylist", currentStylist);
-        model.put("client", thisClient);
-        model.put("template", "templates/client.vtl");
-        return new ModelAndView(model, layout);
-      }, new VelocityTemplateEngine());
-
+        response.redirect("/clients/" + thisClient.getId());
+        return null;
+      });
     }
 }
