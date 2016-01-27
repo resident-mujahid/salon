@@ -14,7 +14,6 @@ Style Tracker demonstrates using Spark routes to perform CRUD operations on a Po
 
 * Create, read, update, and delete information from the database about both stylists and clients.
 * Every client should be assigned to a stylist. If there are unassigned clients in the database, a warning message displays on the index page prompting users to assign them to a stylist.
-* Uses `List.sort` and lambda expressions to sort lists of clients and stylists alphabetically by last name.
 * Displays up-to-date statistics about stylists and clients on the top left of each page.
 * Uses Bootstrap's breadcrumb component for easy navigation.
 
