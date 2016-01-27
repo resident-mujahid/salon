@@ -71,20 +71,10 @@ public class Stylist {
   //READ
 
   public static List<Stylist> all() {
-    String sql = "SELECT id AS mId, first_name AS mFirstName, last_name AS mLastName FROM stylists";
+    String sql = "SELECT id AS mId, first_name AS mFirstName, last_name AS mLastName FROM stylists ORDER BY last_name, first_name";
     try (Connection con = DB.sql2o.open()) {
       return con.createQuery(sql)
         .executeAndFetch(Stylist.class);
-    }
-  }
-
-  public static List<Stylist> all(boolean alphabetical) {
-    if (alphabetical) {
-      List<Stylist> stylists = Stylist.all();
-      stylists.sort((s1, s2) -> s1.mLastName.compareTo(s2.mLastName));
-      return stylists;
-    } else {
-      return Stylist.all();
     }
   }
 

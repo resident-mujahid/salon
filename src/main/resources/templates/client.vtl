@@ -28,7 +28,7 @@
       </div>
       <div class="form-group">
         <select name="newstylistid" id="stylistselector" class="form-control" required>
-          #foreach ($person in $stylist.all(true))
+          #foreach ($person in $stylist.all())
             <option value="$person.getId()">$person.getFullName()</option>
           #end
         </select>

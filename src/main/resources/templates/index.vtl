@@ -34,7 +34,7 @@
   <div class="col-md-12 bg-warning">
     <p><strong>Warning! There are clients not assigned to a stylist. Please click their names below and assign them to one.</strong></p>
     <ul>
-      #foreach ($person in $client.all(true))
+      #foreach ($person in $client.all())
         #if ($person.getStylistId() == 0)
           <li><a href="/clients/$person.getId()">
             $person.getFullName()</a></li>

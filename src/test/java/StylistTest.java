@@ -48,17 +48,6 @@ public class StylistTest {
   }
 
   @Test
-  public void allWithTrue_returnsOrderedListOfAllStylists() {
-    Stylist firstStylist = new Stylist("Charles", "Babbage");
-    Stylist secondStylist = new Stylist("Ada", "Lovelace");
-    Stylist thirdStylist = new Stylist("Frances", "Allen");
-    firstStylist.save();
-    secondStylist.save();
-    thirdStylist.save();
-    assertTrue(Stylist.all(true).get(0).equals(thirdStylist));
-  }
-
-  @Test
   public void total_returnsTotalNumberOfStylists_3() {
     Stylist firstStylist = new Stylist("Charles", "Babbage");
     Stylist secondStylist = new Stylist("Ada", "Lovelace");
