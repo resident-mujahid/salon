@@ -8,8 +8,18 @@ import java.util.List;
 
 public class App {
   public static void main(String[] args) {
+     port(getHerokuAssignedPort());
       staticFileLocation("/public");
       String layout = "templates/layout.vtl";
+
+      static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
+
 
       //ROUTES: GETTING HOME PAGE
 
@@ -185,14 +195,14 @@ public class App {
         return null;
       });
 
-       ProcessBuilder process = new ProcessBuilder();
-          Integer port;
-          if (process.environment().get("PORT") != null) {
-              port = Integer.parseInt(process.environment().get("PORT"));
-          } else {
-              port = 4567;
-          }
+      //  ProcessBuilder process = new ProcessBuilder();
+      //     Integer port;
+      //     if (process.environment().get("PORT") != null) {
+      //         port = Integer.parseInt(process.environment().get("PORT"));
+      //     } else {
+      //         port = 4567;
+      //     }
 
-          setPort(port);
+      //     setPort(port);
     }
 }
