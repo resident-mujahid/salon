@@ -184,5 +184,15 @@ public class App {
         response.redirect("/clients/" + thisClient.getId());
         return null;
       });
+
+       ProcessBuilder process = new ProcessBuilder();
+          Integer port;
+          if (process.environment().get("PORT") != null) {
+              port = Integer.parseInt(process.environment().get("PORT"));
+          } else {
+              port = 4567;
+          }
+
+          setPort(port);
     }
 }
