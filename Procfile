@@ -1,3 +1,4 @@
-web: build\install\salon\salon.bat
+web: build/install/salon/bin/salon
+
 
 
