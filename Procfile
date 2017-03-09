@@ -1,2 +1,3 @@
-web: java -jar target/salon.jar
+web: build\install\salon\salon.bat
+
 
