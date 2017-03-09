@@ -1,1 +1,2 @@
-web: ./build/install/salon/bin/salon
+web: java -jar target/salon.jar
+
